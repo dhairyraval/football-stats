@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #0c3680
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a:hover {
+  background-color: #ffdd70;
+  border-radius: 10%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.competitionInput {
+  width: 18em;
+  height: 2em;
+  border-radius: 0.9em;
+  border-width: 1px;
+  padding-left: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.competitionInput:focus {
+  outline: none;
+}
+
+.headingCellText {
+  font-weight: bold;
+  font-size: medium;  
+}
+
+.headingRow {
+  background-color: #76db74;
+}
+
+.mainDiv {
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-image: url("./components/img/backgroundImage.jpg");
 }
 
-.App-link {
-  color: #61dafb;
+.mainHeading {
+  color: #333333;
+  font-size: 4em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.secondaryDiv{
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  align-items: center;
 }
+
+.subHeading{
+  color: #333333;
+  font-size: 1.5em;
+}
+
+.subText{
+  padding: 2.5em;
+}
+
+.searchText{
+  color: #333333;
+  font-size: 1.5em;
+}
+
