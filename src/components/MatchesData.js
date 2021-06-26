@@ -18,13 +18,15 @@ const Matches = ({ compId }) => {
   const fetchData = async () => {
     try {
       await axios
-        .get(`http://api.football-data.org/v2/competitions/${compId}/matches`, {
-          headers: {
-            "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
-          },
-        })
+        .get(
+          `https://api.football-data.org/v2/competitions/${compId}/matches`,
+          {
+            headers: {
+              "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
+            },
+          }
+        )
         .then((res) => {
-          console.log(res.data);
           setMatches(res.data.matches);
         });
       setLoading(true);

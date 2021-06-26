@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Match = ({ match }) => {
-  console.log(match);
-
   const [errorMessage, setErrorMessage] = useState("false");
   const [homeTeamLogo, setHomeTeamLogo] = useState(null);
   const [awayTeamLogo, setAwayTeamLogo] = useState(null);
@@ -14,7 +12,7 @@ const Match = ({ match }) => {
       await axios
         .all([
           axios.get(
-            `http://api.football-data.org/v2/teams/${match.homeTeam.id}`,
+            `https://api.football-data.org/v2/teams/${match.homeTeam.id}`,
             {
               headers: {
                 "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
@@ -22,7 +20,7 @@ const Match = ({ match }) => {
             }
           ),
           axios.get(
-            `http://api.football-data.org/v2/teams/${match.awayTeam.id}`,
+            `https://api.football-data.org/v2/teams/${match.awayTeam.id}`,
             {
               headers: {
                 "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
@@ -33,7 +31,7 @@ const Match = ({ match }) => {
         .then(
           axios.spread((data1, data2) => {
             // output of req.
-            console.log("data1", data1, "data2", data2);
+            // console.log("data1", data1, "data2", data2);
             setHomeTeamLogo(data1.data.crestUrl);
             setAwayTeamLogo(data2.data.crestUrl);
           })

@@ -24,13 +24,12 @@ const HomePage = () => {
   const fetchData = async () => {
     try {
       await axios
-        .get("http://api.football-data.org/v2/competitions/", {
+        .get("https://api.football-data.org/v2/competitions/", {
           headers: {
             "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
           },
         })
         .then((res) => {
-          console.log(res);
           setCompetitions(res.data.competitions);
         });
       setLoading(true);
