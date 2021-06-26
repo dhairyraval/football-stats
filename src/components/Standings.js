@@ -53,7 +53,7 @@ const Standings = (props) => {
     try {
       await axios
         .get(
-          `http://api.football-data.org/v2/competitions/${id.id.id}/standings`,
+          `https://api.football-data.org/v2/competitions/${id.id.id}/standings`,
           {
             headers: {
               "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
