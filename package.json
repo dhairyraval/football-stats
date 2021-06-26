@@ -1,7 +1,7 @@
 {
   "name": "football-stats",
   "version": "0.1.0",
-  "homepage": "http://Nuey2310.github.io/football-stats",
+  "homepage": "https://Nuey2310.github.io/football-stats",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
