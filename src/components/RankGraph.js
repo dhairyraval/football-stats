@@ -106,12 +106,12 @@ const RankGraph = ({ standing, color }) => {
   };
 
   return (
-    <div style={{ width: "80%", height: "100%" }}>
+    <div style={{ width: "80%", height: "80%" }}>
       <button onClick={() => changeOrder()}>{arrangeData}</button>
       <p>
         {standing.type} {standing.group}
       </p>
-      <ResponsiveContainer width="100%" height="80%">
+      <ResponsiveContainer width="100%" height="90%">
         <BarChart
           data={data}
           layout="vertical"
@@ -122,7 +122,7 @@ const RankGraph = ({ standing, color }) => {
           <YAxis
             dataKey="name"
             type="category"
-            width={100}
+            width={150}
             tick={{ fontSize: 12 }}
           />
           <Tooltip content={<CustomTooltip />} />

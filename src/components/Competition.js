@@ -9,9 +9,7 @@ const Competition = ({ id, name, lastUpdated, currentSeason }) => {
   return (
     <TableRow key={id}>
       <TableCell align="center">
-        {/* <a href="#">{name}</a> */}
         <Link
-         
           to={{
             pathname: "/standings",
             aboutProps: {

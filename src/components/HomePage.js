@@ -30,7 +30,7 @@ const HomePage = () => {
           },
         })
         .then((res) => {
-          //console.log(res);
+          console.log(res);
           setCompetitions(res.data.competitions);
         });
       setLoading(true);

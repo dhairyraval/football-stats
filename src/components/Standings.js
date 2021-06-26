@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
+import Matches from "./MatchesData";
 
 import { Redirect } from "react-router";
+
 import axios from "axios";
 import RankGraph from "./RankGraph";
 
@@ -14,7 +16,7 @@ const Standings = (props) => {
     "#6393e0",
     "#3cb44b",
     "#e6194b",
-    -"#4363d8",
+    "#4363d8",
     "#f58231",
     "#911eb4",
     "#46f0f0",
@@ -39,10 +41,13 @@ const Standings = (props) => {
   ];
 
   //useState const
-  const [competitionName, setCompetitionName] = useState("");
+  const [competition, setCompetition] = useState([]);
+  const [season, setSeason] = useState([]);
   const [standings, setStandings] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("false");
+  const [heightValue, setHeightValue] = useState(800);
+  const [switchDisplay, setSwitchDisplay] = useState(2);
 
   const fetchData = async () => {
     try {
@@ -56,10 +61,11 @@ const Standings = (props) => {
           }
         )
         .then((res) => {
-          console.log(res.data);
-          setCompetitionName(res.data.competition.name);
+          // console.log(res.data);
+          setCompetition(res.data.competition);
+          setSeason(res.data.season);
           setStandings(res.data.standings);
-
+          setHeightValue(150 + res.data.standings[0].table.length * 30); //setting a custom height of graphs
           setErrorMessage("false");
         });
       setLoading(true);
@@ -76,6 +82,14 @@ const Standings = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const toggleSwitch = () => {
+    if (switchDisplay === 1) {
+      setSwitchDisplay(2);
+    } else {
+      setSwitchDisplay(1);
+    }
+  };
+
   if (id === undefined) {
     return <Redirect to="/" />;
   }
@@ -85,38 +99,88 @@ const Standings = (props) => {
     return <Redirect to="/" />;
   }
 
-  console.log(standings);
+  //console.log(standings);
   return (
     <div className="mainContainer">
       {loading ? (
         <>
-          <h2>The Competition Name is : </h2>
-          <h3>{competitionName}</h3>
-          <hr></hr>
+          <div
+            className="mainHeadingContainer"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <h2 className="mainHeadingText">{competition.name}</h2>
+          </div>
+          <div
+            className="subHeadingContainer"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+              fontSize: "18px",
+            }}
+          >
+            <p>
+              <strong>Curent Match Day:</strong> {season.currentMatchday}
+            </p>
+            <p>
+              <strong>StartDate:</strong> {season.startDate}
+            </p>
+            <p>
+              <strong>EndDate:</strong> {season.endDate}
+            </p>
+            <p>
+              <strong>Winner:</strong>{" "}
+              {season.winner === null ? "TBA" : season.winner}
+            </p>
+          </div>
+          <hr />
+          <div
+            className="toggleButtonContainer"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <button onClick={() => toggleSwitch()}>
+              {switchDisplay === 1 ? "Match Stats" : "League Positions"}
+            </button>
+          </div>
 
-          {standings.map((standing, index) => {
-            return (
-              <div
-                style={{
-                  display: "flex",
-                  alignContent: "center",
-                  justifyContent: "center",
-                  width: "80%",
-                  height: "800px",
-                  //backgroundColor: "lightgrey",
-                }}
-              >
-                <RankGraph
-                  key={index}
-                  standing={standing}
-                  color={colors[index]}
-                />
-              </div>
-            );
-          })}
+          <div className="switchDisplayContainer">
+            {switchDisplay === 1 ? (
+              <>
+                {standings.map((standing, index) => {
+                  return (
+                    <div
+                      style={{
+                        display: "flex",
+                        alignContent: "center",
+                        justifyContent: "center",
+                        width: "90%",
+                        height: heightValue,
+                        //backgroundColor: "lightgrey",
+                      }}
+                      key={index}
+                    >
+                      <RankGraph standing={standing} color={colors[index]} />
+                    </div>
+                  );
+                })}
+              </>
+            ) : (
+              <>
+                <div className="matchesContainer">
+                  <Matches compId={id.id.id} />
+                </div>
+              </>
+            )}
+          </div>
         </>
       ) : (
-        <p>Loading . . .</p>
+        <p className="subText">Loading . . .</p>
       )}
     </div>
   );

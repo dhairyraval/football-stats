@@ -1,0 +1,33 @@
+.mainMatchesContainer {
+  display: "flex";
+  background-color: lightgoldenrodyellow;
+  border: 1px solid grey;
+}
+
+.matchDayContainer {
+  border: 1px solid grey;
+  max-width: 600px;
+}
+
+p.FINISHED {
+  color: red;
+  font-weight: bold;
+}
+p.IN_PLAY {
+  color: green;
+  font-weight: bold;
+}
+p.PAUSED {
+  color: darkorange;
+  font-weight: bold;
+}
+p.SCHEDULED {
+  color: blue;
+  font-weight: bold;
+}
+
+.teamLogo {
+  height: 75px;
+  width: 50px;
+  padding: 4px;
+}

@@ -1,7 +1,7 @@
 a {
   text-decoration: none;
   font-weight: bold;
-  color: #0c3680
+  color: #0c3680;
 }
 
 a:hover {
@@ -10,9 +10,9 @@ a:hover {
 }
 
 .competitionInput {
-  width: 18em;
+  width: 25em;
   height: 2em;
-  border-radius: 0.9em;
+  border-radius: 0.6em;
   border-width: 1px;
   padding-left: 10px;
 }
@@ -23,7 +23,7 @@ a:hover {
 
 .headingCellText {
   font-weight: bold;
-  font-size: medium;  
+  font-size: medium;
 }
 
 .headingRow {
@@ -43,24 +43,23 @@ a:hover {
   font-size: 4em;
 }
 
-.secondaryDiv{
+.secondaryDiv {
   display: flex;
   width: 80%;
   flex-direction: column;
   align-items: center;
 }
 
-.subHeading{
+.subHeading {
   color: #333333;
   font-size: 1.5em;
 }
 
-.subText{
+.subText {
   padding: 2.5em;
 }
 
-.searchText{
+.searchText {
   color: #333333;
   font-size: 1.5em;
 }
-
