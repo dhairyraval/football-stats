@@ -77,9 +77,13 @@ const Matches = ({ compId }) => {
           <p>startDate.toString(): {startDate.toString()}</p>
 
           <div className="matchDayContainer">
-            {searchedMatchDay.map((match) => {
-              return <Match key={match.id} match={match} />;
-            })}
+            {searchedMatchDay.length === 0 ? (
+              <p>No games scheduled for the day</p>
+            ) : (
+              searchedMatchDay.map((match) => {
+                return <Match key={match.id} match={match} />;
+              })
+            )}
           </div>
         </div>
       ) : (

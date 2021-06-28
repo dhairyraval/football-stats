@@ -10,6 +10,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 
 const HomePage = () => {
@@ -30,6 +31,7 @@ const HomePage = () => {
           },
         })
         .then((res) => {
+          console.log(res.data.competitions);
           setCompetitions(res.data.competitions);
         });
       setLoading(true);
@@ -63,7 +65,7 @@ const HomePage = () => {
             <h3 className="subHeading">Made by Dhairy Raval</h3>
 
             <p className="searchText">Search football competitions</p>
-            <form>
+            <form className="competitionInputForm">
               <input
                 type="text"
                 placeholder="Search Name"
@@ -72,43 +74,50 @@ const HomePage = () => {
               />
             </form>
             <br></br>
-            <TableContainer
-              className="mainTabelContainer"
-              component={Paper}
-              elevation={8}
-            >
-              <Table className="mainTable" aria-label="simple table">
-                <TableHead>
-                  <TableRow className="headingRow">
-                    <TableCell align="center">
-                      <p className="headingCellText">Competition Name</p>
-                    </TableCell>
-                    <TableCell align="center">
-                      <p className="headingCellText">Current Season Start</p>
-                    </TableCell>
-                    <TableCell align="center">
-                      <p className="headingCellText">Current Season End</p>
-                    </TableCell>
-                    <TableCell align="center">
-                      <p className="headingCellText">Last Updated</p>
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {filterCompetition.map((comp) => {
-                    return (
-                      <Competition
-                        key={comp.id}
-                        id={comp.id}
-                        name={comp.name}
-                        currentSeason={comp.currentSeason}
-                        lastUpdated={comp.lastUpdated}
-                      />
-                    );
-                  })}
-                </TableBody>
-              </Table>
-            </TableContainer>
+            <Grid>
+              <TableContainer
+                className="mainTabelContainer"
+                component={Paper}
+                elevation={8}
+              >
+                <Table className="mainTable" aria-label="simple table">
+                  <TableHead>
+                    <TableRow className="headingRow">
+                      <TableCell align="center">
+                        <p className="headingCellText">Competition Name</p>
+                      </TableCell>
+                      <TableCell align="center">
+                        <p className="headingCellText">Current Season Start</p>
+                      </TableCell>
+                      <TableCell align="center">
+                        <p className="headingCellText">Current Season End</p>
+                      </TableCell>
+                      <TableCell align="center">
+                        <p className="headingCellText">Last Updated</p>
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {filterCompetition.map((comp) => {
+                      //changing competition name from "Premiera Division" to "La Liga"
+                      if (comp.id === 2014) {
+                        comp.name = "La Liga";
+                      }
+                      return (
+                        <Competition
+                          key={comp.id}
+                          id={comp.id}
+                          name={comp.name}
+                          currentSeason={comp.currentSeason}
+                          lastUpdated={comp.lastUpdated}
+                        />
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Grid>
+
             <p className="subText">
               All football data provided by the Football-Data.org API
             </p>

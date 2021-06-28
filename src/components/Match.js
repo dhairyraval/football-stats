@@ -6,8 +6,14 @@ const Match = ({ match }) => {
   const [errorMessage, setErrorMessage] = useState("false");
   const [homeTeamLogo, setHomeTeamLogo] = useState(null);
   const [awayTeamLogo, setAwayTeamLogo] = useState(null);
+  const [teamNull, setTeamNull] = useState(0);
 
   const fetchData = async () => {
+    if (match.homeTeam.id === null || match.awayTeam.id === null) {
+      setTeamNull(1);
+      return;
+    }
+
     try {
       await axios
         .all([
@@ -58,6 +64,7 @@ const Match = ({ match }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-evenly",
+        padding: "2%",
       }}
     >
       <div
@@ -66,10 +73,16 @@ const Match = ({ match }) => {
           alignItems: "center",
         }}
       >
-        {match.homeTeam.name}
-        {homeTeamLogo !== null ? (
-          <img src={homeTeamLogo} alt="homeTeamLogo" className="teamLogo" />
-        ) : null}
+        {teamNull === 1 ? (
+          "TBA"
+        ) : (
+          <>
+            {match.homeTeam.name}
+            {homeTeamLogo !== null ? (
+              <img src={homeTeamLogo} alt="homeTeamLogo" className="teamLogo" />
+            ) : null}
+          </>
+        )}
       </div>
 
       {match.status === "SCHEDULED" ? (
@@ -86,11 +99,16 @@ const Match = ({ match }) => {
           alignItems: "center",
         }}
       >
-        {awayTeamLogo !== null ? (
-          <img src={awayTeamLogo} alt="awayTeamLogo" className="teamLogo" />
-        ) : null}
-
-        {match.awayTeam.name}
+        {teamNull === 1 ? (
+          "TBA"
+        ) : (
+          <>
+            {awayTeamLogo !== null ? (
+              <img src={awayTeamLogo} alt="awayTeamLogo" className="teamLogo" />
+            ) : null}
+            {match.awayTeam.name}
+          </>
+        )}
       </div>
       <p className={match.status}>{match.status}</p>
     </div>

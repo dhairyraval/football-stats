@@ -108,33 +108,38 @@ const Standings = (props) => {
             className="mainHeadingContainer"
             style={{
               display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
               justifyContent: "center",
             }}
           >
             <h2 className="mainHeadingText">{competition.name}</h2>
-          </div>
-          <div
-            className="subHeadingContainer"
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-evenly",
-              fontSize: "18px",
-            }}
-          >
-            <p>
-              <strong>Curent Match Day:</strong> {season.currentMatchday}
-            </p>
-            <p>
-              <strong>StartDate:</strong> {season.startDate}
-            </p>
-            <p>
-              <strong>EndDate:</strong> {season.endDate}
-            </p>
-            <p>
-              <strong>Winner:</strong>{" "}
-              {season.winner === null ? "TBA" : season.winner}
-            </p>
+
+            <div
+              className="subHeadingContainer"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-evenly",
+                fontSize: "18px",
+                width: "95%",
+                justifySelf: "center",
+              }}
+            >
+              <p>
+                <strong>Curent Match Day:</strong> {season.currentMatchday}
+              </p>
+              <p>
+                <strong>StartDate:</strong> {season.startDate}
+              </p>
+              <p>
+                <strong>EndDate:</strong> {season.endDate}
+              </p>
+              <p>
+                <strong>Winner:</strong>{" "}
+                {season.winner === null ? "TBA" : season.winner.name}
+              </p>
+            </div>
           </div>
           <hr />
           <div

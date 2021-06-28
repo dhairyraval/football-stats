@@ -10,15 +10,19 @@ a:hover {
 }
 
 .competitionInput {
-  width: 25em;
   height: 2em;
   border-radius: 0.6em;
   border-width: 1px;
   padding-left: 10px;
+  width: 100%;
 }
 
 .competitionInput:focus {
   outline: none;
+}
+
+.competitionInputForm {
+  min-width: 50%;
 }
 
 .headingCellText {

@@ -1,6 +1,6 @@
 .tooltipContainer {
-  background-color: white;
-  border: 1px solid grey;
+  background-color: lightgrey;
+  border: 1px solid goldenrod;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,6 +11,11 @@
 .toolTipImage {
   height: 100px;
   width: 100px;
+}
+
+.toolTipLabel {
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .toolTipStats {
