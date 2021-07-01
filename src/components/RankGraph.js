@@ -106,12 +106,12 @@ const RankGraph = ({ standing, color }) => {
   };
 
   return (
-    <div style={{ width: "80%", height: "80%" }}>
+    <div style={{ width: "80%", height: "80%", backgroundColor: "lightblue" }}>
       <button onClick={() => changeOrder()}>{arrangeData}</button>
       <p>
         {standing.type} {standing.group}
       </p>
-      <ResponsiveContainer width="100%" height="90%">
+      <ResponsiveContainer width="100%" height="80%">
         <BarChart
           data={data}
           layout="vertical"

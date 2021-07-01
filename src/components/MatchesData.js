@@ -24,6 +24,7 @@ const Matches = ({ compId }) => {
             headers: {
               "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
             },
+            crossdomain: true,
           }
         )
         .then((res) => {
@@ -73,8 +74,6 @@ const Matches = ({ compId }) => {
             selected={startDate}
             onChange={(date) => setStartDate(date)}
           />
-
-          <p>startDate.toString(): {startDate.toString()}</p>
 
           <div className="matchDayContainer">
             {searchedMatchDay.length === 0 ? (

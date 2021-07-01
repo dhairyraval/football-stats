@@ -7,10 +7,12 @@ const Match = ({ match }) => {
   const [homeTeamLogo, setHomeTeamLogo] = useState(null);
   const [awayTeamLogo, setAwayTeamLogo] = useState(null);
   const [teamNull, setTeamNull] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const fetchData = async () => {
     if (match.homeTeam.id === null || match.awayTeam.id === null) {
       setTeamNull(1);
+      setLoading(true);
       return;
     }
 
@@ -22,7 +24,9 @@ const Match = ({ match }) => {
             {
               headers: {
                 "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
+                "Content-Type": "application/json",
               },
+              crossdomain: true,
             }
           ),
           axios.get(
@@ -30,18 +34,19 @@ const Match = ({ match }) => {
             {
               headers: {
                 "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
+                "Content-Type": "application/json",
               },
+              crossdomain: true,
             }
           ),
         ])
         .then(
           axios.spread((data1, data2) => {
-            // output of req.
-            // console.log("data1", data1, "data2", data2);
             setHomeTeamLogo(data1.data.crestUrl);
             setAwayTeamLogo(data2.data.crestUrl);
           })
         );
+      setLoading(true);
     } catch (e) {
       if (e.response && e.response.data) {
         console.log(e.response.data.message); // some reason error message
@@ -57,61 +62,83 @@ const Match = ({ match }) => {
   if (errorMessage !== "false") {
     alert(errorMessage);
   }
+  //console.log(match);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-evenly",
-        padding: "2%",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        {teamNull === 1 ? (
-          "TBA"
-        ) : (
-          <>
-            {match.homeTeam.name}
-            {homeTeamLogo !== null ? (
-              <img src={homeTeamLogo} alt="homeTeamLogo" className="teamLogo" />
-            ) : null}
-          </>
-        )}
-      </div>
+    <>
+      {loading ? (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+            padding: "1%",
+            margin: "1%",
+            width: "70%",
+            fontWeight: "600",
+            border: "1px solid black",
+            backgroundColor: "lightblue",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            {teamNull === 1 ? (
+              "TBA"
+            ) : (
+              <>
+                {match.homeTeam.name}
+                {homeTeamLogo !== null ? (
+                  <img
+                    src={homeTeamLogo}
+                    alt="homeTeamLogo"
+                    className="teamLogo"
+                  />
+                ) : null}
+              </>
+            )}
+          </div>
 
-      {match.status === "SCHEDULED" ? (
-        <p> v </p>
+          {match.status === "SCHEDULED" ? (
+            <p> vs. </p>
+          ) : (
+            <p>
+              {match.score.fullTime.homeTeam}-{match.score.fullTime.awayTeam}
+            </p>
+          )}
+
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            {teamNull === 1 ? (
+              "TBA"
+            ) : (
+              <>
+                {awayTeamLogo !== null ? (
+                  <img
+                    src={awayTeamLogo}
+                    alt="awayTeamLogo"
+                    className="teamLogo"
+                  />
+                ) : null}
+                {match.awayTeam.name}
+              </>
+            )}
+          </div>
+
+          <p>{match.stage}</p>
+          <p className={match.status}>{match.status}</p>
+        </div>
       ) : (
-        <p>
-          {match.score.fullTime.homeTeam}-{match.score.fullTime.awayTeam}
-        </p>
+        <p>Loading . . .</p>
       )}
-
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        {teamNull === 1 ? (
-          "TBA"
-        ) : (
-          <>
-            {awayTeamLogo !== null ? (
-              <img src={awayTeamLogo} alt="awayTeamLogo" className="teamLogo" />
-            ) : null}
-            {match.awayTeam.name}
-          </>
-        )}
-      </div>
-      <p className={match.status}>{match.status}</p>
-    </div>
+    </>
   );
 };
 

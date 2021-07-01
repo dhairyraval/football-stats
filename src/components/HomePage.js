@@ -31,7 +31,6 @@ const HomePage = () => {
           },
         })
         .then((res) => {
-          console.log(res.data.competitions);
           setCompetitions(res.data.competitions);
         });
       setLoading(true);

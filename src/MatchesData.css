@@ -1,14 +1,14 @@
 .mainMatchesContainer {
   text-align: center;
   align-content: center;
-  background-color: lightblue;
-  border: 1px solid grey;
+  /* background-color: lightblue;
+  border: 1px solid grey; */
 }
 
 .matchDayContainer {
-  align-self: center;
-  border: 1px solid grey;
-  min-width: 75%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 p.FINISHED {
@@ -30,6 +30,7 @@ p.SCHEDULED {
 
 .teamLogo {
   height: auto;
-  width: 60px;
-  padding: 4px;
+  width: 3em;
+  border: 1px solid grey;
+  margin: 0px 4px 0px 4px;
 }

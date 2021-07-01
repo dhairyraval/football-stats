@@ -3,6 +3,7 @@ import "../App.css";
 import Matches from "./MatchesData";
 
 import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 import RankGraph from "./RankGraph";
@@ -58,6 +59,7 @@ const Standings = (props) => {
             headers: {
               "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
             },
+            crossdomain: true,
           }
         )
         .then((res) => {
@@ -99,7 +101,7 @@ const Standings = (props) => {
     return <Redirect to="/" />;
   }
 
-  //console.log(standings);
+  // console.log(standings);
   return (
     <div className="mainContainer">
       {loading ? (
@@ -123,19 +125,18 @@ const Standings = (props) => {
                 justifyContent: "space-evenly",
                 fontSize: "18px",
                 width: "95%",
-                justifySelf: "center",
               }}
             >
-              <p>
-                <strong>Curent Match Day:</strong> {season.currentMatchday}
+              <p style={{ padding: "1%" }}>
+                <strong>Match Day:</strong> {season.currentMatchday}
               </p>
-              <p>
-                <strong>StartDate:</strong> {season.startDate}
+              <p style={{ padding: "1%" }}>
+                <strong>Start Date:</strong> {season.startDate}
               </p>
-              <p>
-                <strong>EndDate:</strong> {season.endDate}
+              <p style={{ padding: "1%" }}>
+                <strong>End Date:</strong> {season.endDate}
               </p>
-              <p>
+              <p style={{ padding: "1%" }}>
                 <strong>Winner:</strong>{" "}
                 {season.winner === null ? "TBA" : season.winner.name}
               </p>
@@ -143,12 +144,14 @@ const Standings = (props) => {
           </div>
           <hr />
           <div
-            className="toggleButtonContainer"
+            className="ButtonsContainer"
             style={{
               display: "flex",
-              justifyContent: "center",
+              justifyContent: "space-evenly",
             }}
           >
+            <Link to="/">back</Link>
+
             <button onClick={() => toggleSwitch()}>
               {switchDisplay === 1 ? "Match Stats" : "League Positions"}
             </button>
