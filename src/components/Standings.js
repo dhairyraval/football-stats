@@ -59,11 +59,10 @@ const Standings = (props) => {
             headers: {
               "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
             },
-            crossdomain: true,
+            crossDomain: true,
           }
         )
         .then((res) => {
-          // console.log(res.data);
           setCompetition(res.data.competition);
           setSeason(res.data.season);
           setStandings(res.data.standings);
@@ -181,7 +180,7 @@ const Standings = (props) => {
             ) : (
               <>
                 <div className="matchesContainer">
-                  <Matches compId={id.id.id} />
+                  <Matches standings={standings} compId={id.id.id} />
                 </div>
               </>
             )}

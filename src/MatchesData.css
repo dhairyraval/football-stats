@@ -11,6 +11,21 @@
   flex-direction: column;
 }
 
+.matchTable {
+  background-color: lemonchiffon;
+  margin: 1%, 0, 1%, 0;
+}
+
+.matchTeamContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aqua;
+  width: 10em;
+  font-size: 18px;
+  font-weight: 600;
+}
+
 p.FINISHED {
   color: red;
   font-weight: bold;
@@ -32,5 +47,4 @@ p.SCHEDULED {
   height: auto;
   width: 3em;
   border: 1px solid grey;
-  margin: 0px 4px 0px 4px;
 }

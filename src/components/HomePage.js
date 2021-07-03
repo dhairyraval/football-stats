@@ -75,7 +75,7 @@ const HomePage = () => {
             <br></br>
             <Grid>
               <TableContainer
-                className="mainTabelContainer"
+                className="mainTableContainer"
                 component={Paper}
                 elevation={8}
               >

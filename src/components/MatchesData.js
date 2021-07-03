@@ -8,7 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { Redirect } from "react-router";
 
-const Matches = ({ compId }) => {
+const Matches = ({ standings, compId }) => {
   //useState const
   const [errorMessage, setErrorMessage] = useState("false");
   const [loading, setLoading] = useState(false);
@@ -23,8 +23,9 @@ const Matches = ({ compId }) => {
           {
             headers: {
               "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
+              "Content-Type": "application/json",
             },
-            crossdomain: true,
+            crossDomain: true,
           }
         )
         .then((res) => {
@@ -80,7 +81,9 @@ const Matches = ({ compId }) => {
               <p>No games scheduled for the day</p>
             ) : (
               searchedMatchDay.map((match) => {
-                return <Match key={match.id} match={match} />;
+                return (
+                  <Match key={match.id} standings={standings} match={match} />
+                );
               })
             )}
           </div>
