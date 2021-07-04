@@ -100,7 +100,6 @@ const Standings = (props) => {
     return <Redirect to="/" />;
   }
 
-  // console.log(standings);
   return (
     <div className="mainContainer">
       {loading ? (
@@ -127,13 +126,13 @@ const Standings = (props) => {
               }}
             >
               <p style={{ padding: "1%" }}>
-                <strong>Match Day:</strong> {season.currentMatchday}
-              </p>
-              <p style={{ padding: "1%" }}>
                 <strong>Start Date:</strong> {season.startDate}
               </p>
               <p style={{ padding: "1%" }}>
                 <strong>End Date:</strong> {season.endDate}
+              </p>
+              <p style={{ padding: "1%" }}>
+                <strong>Round:</strong> {season.currentMatchday}
               </p>
               <p style={{ padding: "1%" }}>
                 <strong>Winner:</strong>{" "}
@@ -149,10 +148,10 @@ const Standings = (props) => {
               justifyContent: "space-evenly",
             }}
           >
-            <Link to="/">back</Link>
+            <Link to="/">&lt;BACK</Link>
 
             <button onClick={() => toggleSwitch()}>
-              {switchDisplay === 1 ? "Match Stats" : "League Positions"}
+              {switchDisplay === 1 ? "Fixtures/Results" : "League Positions"}
             </button>
           </div>
 
@@ -168,7 +167,6 @@ const Standings = (props) => {
                         justifyContent: "center",
                         width: "90%",
                         height: heightValue,
-                        //backgroundColor: "lightgrey",
                       }}
                       key={index}
                     >

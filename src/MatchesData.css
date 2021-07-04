@@ -1,50 +1,70 @@
 .mainMatchesContainer {
   text-align: center;
   align-content: center;
-  /* background-color: lightblue;
-  border: 1px solid grey; */
 }
 
 .matchDayContainer {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin: 3em;
+}
+
+.matchScoreContainer {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.matchStatus {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
 }
 
 .matchTable {
-  background-color: lemonchiffon;
-  margin: 1%, 0, 1%, 0;
+}
+
+.matchTableRow {
+  background-color: WhiteSmoke;
 }
 
 .matchTeamContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: aqua;
-  width: 10em;
-  font-size: 18px;
+  text-align: center;
+  font-size: 16px;
   font-weight: 600;
 }
 
 p.FINISHED {
+  font-size: 16px;
   color: red;
   font-weight: bold;
+  text-align: center;
 }
 p.IN_PLAY {
+  font-size: 16px;
   color: green;
   font-weight: bold;
+  text-align: center;
 }
 p.PAUSED {
+  font-size: 16px;
   color: darkorange;
   font-weight: bold;
+  text-align: center;
 }
 p.SCHEDULED {
+  font-size: 16px;
   color: blue;
   font-weight: bold;
+  text-align: center;
 }
 
 .teamLogo {
   height: auto;
   width: 3em;
-  border: 1px solid grey;
+  filter: drop-shadow(0 0 0.1rem grey);
 }

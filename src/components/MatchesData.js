@@ -14,6 +14,7 @@ const Matches = ({ standings, compId }) => {
   const [loading, setLoading] = useState(false);
   const [matches, setMatches] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
+  var matchDays = [];
 
   const fetchData = async () => {
     try {
@@ -40,10 +41,22 @@ const Matches = ({ standings, compId }) => {
     }
   };
 
+  const findMatchDays = () => {
+    matches.forEach((match) => {
+      var testDate = new Date(match.utcDate);
+      var utc = new Date(
+        testDate.getTime() + testDate.getTimezoneOffset() * 60000
+      );
+      matchDays.push(new Date(utc));
+    });
+  };
+
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  findMatchDays();
 
   if (compId === undefined) {
     return <Redirect to="/" />;
@@ -70,10 +83,11 @@ const Matches = ({ standings, compId }) => {
     <div>
       {loading ? (
         <div className="mainMatchesContainer">
-          <h2 className="mainHeadingText">Match Stats:</h2>
+          <h2 className="mainHeadingText">Fixtures / Results :</h2>
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}
+            highlightDates={matchDays}
           />
 
           <div className="matchDayContainer">

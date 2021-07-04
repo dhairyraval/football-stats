@@ -14,8 +14,8 @@ const Match = ({ standings, match }) => {
   const [teamNull, setTeamNull] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  console.log(match);
   console.log(standings);
+  console.log(match);
 
   const fetchData = async () => {
     if (match.homeTeam.id === null || match.awayTeam.id === null) {
@@ -48,72 +48,82 @@ const Match = ({ standings, match }) => {
     <>
       {loading ? (
         <>
-          <p>{match.stage}</p>
-
-          <TableContainer
-            className="matchTableContainer"
-            component={Paper}
-            elevation={6}
-          >
-            <Table className="matchTable" aria-label="simple table">
-              <TableHead>
-                <TableRow className="matchTableRow">
-                  <TableCell
-                    align="center"
-                    style={{ backgroundColor: "white" }}
-                  >
-                    <div className="matchTeamContainer">
-                      {teamNull === 1 ? (
-                        "TBA"
-                      ) : (
-                        <>
-                          {match.homeTeam.name}
-                          {homeTeamLogo !== null ? (
-                            <img
-                              src={homeTeamLogo}
-                              alt="homeTeamLogo"
-                              className="teamLogo"
-                            />
-                          ) : null}
-                        </>
-                      )}
-                    </div>
-                  </TableCell>
-                  <TableCell align="center">
-                    {match.status === "SCHEDULED" ? (
-                      <p>vs.</p>
-                    ) : (
-                      <p>
-                        {match.score.fullTime.homeTeam}-
-                        {match.score.fullTime.awayTeam}
-                      </p>
-                    )}
-                  </TableCell>
-                  <TableCell align="center">
-                    <div className="matchTeamContainer">
-                      {teamNull === 1 ? (
-                        "TBA"
-                      ) : (
-                        <>
-                          {match.awayTeam.name}
-                          {awayTeamLogo !== null ? (
-                            <img
-                              src={awayTeamLogo}
-                              alt="awayTeamLogo"
-                              className="teamLogo"
-                            />
-                          ) : null}
-                        </>
-                      )}
-                    </div>
-                  </TableCell>
-                  <TableCell align="center">
-                    <p className={match.status}>{match.status}</p>
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-            </Table>
-          </TableContainer>
+          <Grid container style={{ marginTop: "2em" }}>
+            <TableContainer
+              className="matchTableContainer"
+              component={Paper}
+              elevation={6}
+            >
+              <Table className="matchTable" aria-label="simple table">
+                <TableHead>
+                  <TableRow className="matchTableRow">
+                    <TableCell
+                      style={{
+                        width: "30%",
+                      }}
+                    >
+                      <div className="matchTeamContainer">
+                        {teamNull === 1 ? (
+                          "TBA"
+                        ) : (
+                          <>
+                            {match.homeTeam.name}
+                            {homeTeamLogo !== null ? (
+                              <img
+                                src={homeTeamLogo}
+                                alt="homeTeamLogo"
+                                className="teamLogo"
+                              />
+                            ) : null}
+                          </>
+                        )}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="matchScoreContainer">
+                        {match.status === "SCHEDULED" ? (
+                          <p>vs.</p>
+                        ) : (
+                          <p>
+                            {match.score.fullTime.homeTeam} -{"  "}
+                            {match.score.fullTime.awayTeam}
+                          </p>
+                        )}
+                      </div>
+                    </TableCell>
+                    <TableCell
+                      style={{
+                        width: "30%",
+                      }}
+                    >
+                      <div className="matchTeamContainer">
+                        {teamNull === 1 ? (
+                          "TBA"
+                        ) : (
+                          <>
+                            {match.awayTeam.name}
+                            {awayTeamLogo !== null ? (
+                              <img
+                                src={awayTeamLogo}
+                                alt="awayTeamLogo"
+                                className="teamLogo"
+                              />
+                            ) : null}
+                          </>
+                        )}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <p className={match.status}>{match.status}</p>
+                    </TableCell>
+                    <TableCell>
+                      <p className="matchStatus">{match.stage}</p>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+              </Table>
+            </TableContainer>
+          </Grid>
         </>
       ) : (
         <p>Loading . . .</p>
