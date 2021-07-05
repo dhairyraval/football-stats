@@ -113,7 +113,9 @@ const Standings = (props) => {
               justifyContent: "center",
             }}
           >
-            <h2 className="mainHeadingText">{competition.name}</h2>
+            <h2 className="mainHeadingText">
+              {competition.name.toUpperCase()}
+            </h2>
 
             <div
               className="subHeadingContainer"
@@ -125,16 +127,16 @@ const Standings = (props) => {
                 width: "95%",
               }}
             >
-              <p style={{ padding: "1%" }}>
+              <p style={{ padding: "2%" }}>
                 <strong>Start Date:</strong> {season.startDate}
               </p>
-              <p style={{ padding: "1%" }}>
+              <p style={{ padding: "2%" }}>
                 <strong>End Date:</strong> {season.endDate}
               </p>
-              <p style={{ padding: "1%" }}>
+              <p style={{ padding: "2%" }}>
                 <strong>Round:</strong> {season.currentMatchday}
               </p>
-              <p style={{ padding: "1%" }}>
+              <p style={{ padding: "2%" }}>
                 <strong>Winner:</strong>{" "}
                 {season.winner === null ? "TBA" : season.winner.name}
               </p>

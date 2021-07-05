@@ -1,3 +1,32 @@
+.calendarCitation {
+  font-size: 14px;
+  padding: 1em;
+}
+
+.customDateInput {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 3em;
+  width: 12em;
+  background-color: white;
+  color: black;
+  font-size: 14px;
+  border: none;
+
+  border-bottom: 2px solid;
+  transition: 0.5s;
+}
+
+.customDateInput:hover {
+  border-radius: 0.6em;
+  background-color: lightgrey;
+}
+.customDateInput:focus {
+  border-radius: 0.6em;
+  background-color: lightgrey;
+}
+
 .mainMatchesContainer {
   text-align: center;
   align-content: center;
@@ -5,7 +34,6 @@
 
 .matchDayContainer {
   display: flex;
-  align-items: center;
   flex-direction: column;
   margin: 3em;
 }
@@ -20,6 +48,10 @@
   font-size: 16px;
   font-weight: 600;
   text-align: center;
+}
+
+.matchTableContainer {
+  max-width: 60em;
 }
 
 .matchTable {
@@ -64,7 +96,7 @@ p.SCHEDULED {
 }
 
 .teamLogo {
-  height: auto;
+  max-height: 2.5em;
   width: 3em;
   filter: drop-shadow(0 0 0.1rem grey);
 }

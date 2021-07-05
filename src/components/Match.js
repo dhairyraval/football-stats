@@ -14,9 +14,6 @@ const Match = ({ standings, match }) => {
   const [teamNull, setTeamNull] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  console.log(standings);
-  console.log(match);
-
   const fetchData = async () => {
     if (match.homeTeam.id === null || match.awayTeam.id === null) {
       setTeamNull(1);
@@ -48,11 +45,17 @@ const Match = ({ standings, match }) => {
     <>
       {loading ? (
         <>
-          <Grid container style={{ marginTop: "2em" }}>
+          <Grid
+            container
+            style={{
+              marginBottom: "3em",
+              justifyContent: "center",
+            }}
+          >
             <TableContainer
               className="matchTableContainer"
               component={Paper}
-              elevation={6}
+              elevation={1}
             >
               <Table className="matchTable" aria-label="simple table">
                 <TableHead>

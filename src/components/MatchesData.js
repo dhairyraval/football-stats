@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import "../MatchesData.css";
 import Match from "./Match";
 
@@ -79,6 +79,17 @@ const Matches = ({ standings, compId }) => {
         ) === 0
   );
 
+  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
+    <button className="customDateInput" onClick={onClick} ref={ref}>
+      <img
+        src="https://img.icons8.com/ios/50/000000/calendar.png"
+        alt="calendarIcon"
+        style={{ height: "auto", width: "20%" }}
+      />
+      {value}
+    </button>
+  ));
+
   return (
     <div>
       {loading ? (
@@ -88,6 +99,8 @@ const Matches = ({ standings, compId }) => {
             selected={startDate}
             onChange={(date) => setStartDate(date)}
             highlightDates={matchDays}
+            disabledKeyboardNavigation
+            customInput={<ExampleCustomInput />}
           />
 
           <div className="matchDayContainer">
@@ -101,6 +114,15 @@ const Matches = ({ standings, compId }) => {
               })
             )}
           </div>
+
+          <a
+            className="calendarCitation"
+            href="https://icons8.com/icon/23/calendar"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Calendar icon by Icons8
+          </a>
         </div>
       ) : (
         <p className="subText">Loading . . .</p>
