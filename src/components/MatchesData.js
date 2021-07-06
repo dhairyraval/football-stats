@@ -113,16 +113,16 @@ const Matches = ({ standings, compId }) => {
                 );
               })
             )}
-          </div>
 
-          <a
-            className="calendarCitation"
-            href="https://icons8.com/icon/23/calendar"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Calendar icon by Icons8
-          </a>
+            <a
+              className="calendarCitation"
+              href="https://icons8.com/icon/23/calendar"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Calendar icon by Icons8
+            </a>
+          </div>
         </div>
       ) : (
         <p className="subText">Loading . . .</p>
