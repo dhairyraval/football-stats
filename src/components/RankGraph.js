@@ -106,27 +106,36 @@ const RankGraph = ({ standing, color }) => {
   };
 
   return (
-    <div style={{ width: "80%", height: "80%", backgroundColor: "lightblue" }}>
+    <div
+      style={{
+        width: "90%",
+        height: "90%",
+        border: "1px solid",
+        backgroundColor: "lightcoral",
+        margin: "3em",
+      }}
+    >
       <button onClick={() => changeOrder()}>{arrangeData}</button>
       <p>
         {standing.type} {standing.group}
       </p>
       <ResponsiveContainer width="100%" height="80%">
-        <BarChart
-          data={data}
-          layout="vertical"
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-        >
+        <BarChart data={data} layout="vertical" barCategoryGap="15%">
           <CartesianGrid strokeDasharray="5 5" />
           <XAxis dataKey="points" type="number" />
           <YAxis
             dataKey="name"
             type="category"
-            width={150}
-            tick={{ fontSize: 12 }}
+            width={100}
+            tick={{ fontSize: 14 }}
           />
-          <Tooltip content={<CustomTooltip />} />
-          <Bar dataKey="points" fill={color}></Bar>
+          <Tooltip content={<CustomTooltip />} style={{ width: 100 }} />
+          <Bar
+            dataKey="points"
+            fill={color}
+            animationDuration={800}
+            radius={[0, 10, 10, 0]}
+          />
         </BarChart>
       </ResponsiveContainer>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../App.css";
 
 import Competition from "./Competition";
@@ -22,6 +22,8 @@ const HomePage = () => {
     2000, 2001, 2002, 2003, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021,
     2152,
   ];
+
+  const linkRef = useRef();
   const fetchData = async () => {
     try {
       await axios
@@ -55,13 +57,20 @@ const HomePage = () => {
       availableComps.includes(competition.id)
   );
 
+  function handleBackClick() {
+    linkRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+
   return (
     <div className="mainDiv">
       <div className="secondaryDiv">
         {loading ? (
           <>
-            <h1 className="mainHeading">FOOTY</h1>
-            <h3 className="subHeading">Made by Dhairy Raval</h3>
+            <h1 className="mainHeading">FOOTBALL-STATS</h1>
+
+            <button className="subHeading" onClick={handleBackClick}>
+              Made by Dhairy Raval
+            </button>
 
             <p className="searchText">Search football competitions</p>
             <form className="competitionInputForm">
@@ -120,6 +129,7 @@ const HomePage = () => {
             <p className="subText">
               All football data provided by the Football-Data.org API
             </p>
+            <h3 ref={linkRef}>Links to github and linkedIn</h3>
           </>
         ) : (
           <p>Loading . . .</p>

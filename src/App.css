@@ -44,7 +44,7 @@ a:hover {
 
 .mainHeading {
   color: #333333;
-  font-size: 4em;
+  font-size: 3.5em;
 }
 
 .secondaryDiv {
@@ -55,8 +55,17 @@ a:hover {
 }
 
 .subHeading {
+  border: none;
+  background: transparent;
   color: #333333;
   font-size: 1.5em;
+  border-radius: 0.5em;
+  transition: 0.5s;
+}
+
+.subHeading:hover {
+  background-color: #ffdd70;
+  font-size: 1.8em;
 }
 
 .subText {

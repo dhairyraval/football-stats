@@ -66,7 +66,7 @@ const Standings = (props) => {
           setCompetition(res.data.competition);
           setSeason(res.data.season);
           setStandings(res.data.standings);
-          setHeightValue(150 + res.data.standings[0].table.length * 30); //setting a custom height of graphs
+          setHeightValue(200 + res.data.standings[0].table.length * 30); //setting a custom height of graphs
           setErrorMessage("false");
         });
       setLoading(true);
@@ -127,16 +127,16 @@ const Standings = (props) => {
                 width: "95%",
               }}
             >
-              <p style={{ padding: "2%" }}>
+              <p style={{ padding: "2%", textAlign: "center" }}>
                 <strong>Start Date:</strong> {season.startDate}
               </p>
-              <p style={{ padding: "2%" }}>
+              <p style={{ padding: "2%", textAlign: "center" }}>
                 <strong>End Date:</strong> {season.endDate}
               </p>
-              <p style={{ padding: "2%" }}>
+              <p style={{ padding: "2%", textAlign: "center" }}>
                 <strong>Round:</strong> {season.currentMatchday}
               </p>
-              <p style={{ padding: "2%" }}>
+              <p style={{ padding: "2%", textAlign: "center" }}>
                 <strong>Winner:</strong>{" "}
                 {season.winner === null ? "TBA" : season.winner.name}
               </p>
@@ -167,8 +167,9 @@ const Standings = (props) => {
                         display: "flex",
                         alignContent: "center",
                         justifyContent: "center",
-                        width: "90%",
+                        width: "100%",
                         height: heightValue,
+                        backgroundColor: "lightgray",
                       }}
                       key={index}
                     >
