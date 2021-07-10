@@ -1,6 +1,7 @@
 import React, { useState, useEffect, forwardRef } from "react";
 import "../MatchesData.css";
 import Match from "./Match";
+import calendarLogo from "./img/calendarLogo.png";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -82,8 +83,8 @@ const Matches = ({ standings, compId }) => {
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
     <button className="customDateInput" onClick={onClick} ref={ref}>
       <img
-        src="https://img.icons8.com/ios/50/000000/calendar.png"
-        alt="calendarIcon"
+        src={calendarLogo}
+        alt="calendarLogo"
         style={{ height: "auto", width: "20%" }}
       />
       {value}

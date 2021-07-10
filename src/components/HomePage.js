@@ -3,6 +3,9 @@ import "../App.css";
 
 import Competition from "./Competition";
 import axios from "axios";
+import githubLogo from "./img/githubLogo.png";
+import linkedinLogo from "./img/linkedinLogo.png";
+import emailLogo from "./img/emailLogo.png";
 
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -62,79 +65,120 @@ const HomePage = () => {
   }
 
   return (
-    <div className="mainDiv">
-      <div className="secondaryDiv">
-        {loading ? (
-          <>
-            <h1 className="mainHeading">FOOTBALL-STATS</h1>
+    <div>
+      {loading ? (
+        <div className="mainDiv">
+          <h1 className="mainHeading">FOOTBALL-STATS</h1>
 
-            <button className="subHeading" onClick={handleBackClick}>
-              Made by Dhairy Raval
-            </button>
+          <button className="subHeading" onClick={handleBackClick}>
+            Made by Dhairy Raval
+          </button>
 
-            <p className="searchText">Search football competitions</p>
-            <form className="competitionInputForm">
-              <input
-                type="text"
-                placeholder="Search Name"
-                className="competitionInput"
-                onChange={inputName}
+          <p className="searchText">Search football competitions</p>
+          <form className="competitionInputForm">
+            <input
+              type="text"
+              placeholder="Search Name"
+              className="competitionInput"
+              onChange={inputName}
+            />
+          </form>
+          <br></br>
+          <Grid>
+            <TableContainer
+              className="mainTableContainer"
+              component={Paper}
+              elevation={8}
+            >
+              <Table className="mainTable" aria-label="simple table">
+                <TableHead>
+                  <TableRow className="headingRow">
+                    <TableCell align="center">
+                      <p className="headingCellText">Competition Name</p>
+                    </TableCell>
+                    <TableCell align="center">
+                      <p className="headingCellText">Current Season Start</p>
+                    </TableCell>
+                    <TableCell align="center">
+                      <p className="headingCellText">Current Season End</p>
+                    </TableCell>
+                    <TableCell align="center">
+                      <p className="headingCellText">Last Updated</p>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {filterCompetition.map((comp) => {
+                    //changing competition name from "Premiera Division" to "La Liga"
+                    if (comp.id === 2014) {
+                      comp.name = "La Liga";
+                    }
+                    return (
+                      <Competition
+                        key={comp.id}
+                        id={comp.id}
+                        name={comp.name}
+                        currentSeason={comp.currentSeason}
+                        lastUpdated={comp.lastUpdated}
+                      />
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Grid>
+
+          <p className="subText">
+            All football data provided by{" "}
+            <a href="https://www.football-data.org/">Football-Data.org API</a>
+          </p>
+          <div className="socialLinksContainer" ref={linkRef}>
+            <a
+              href="https://github.com/Nuey2310"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="socialLinks"
+            >
+              {" "}
+              <img
+                src={githubLogo}
+                alt="githubLogo"
+                className="socialLinksImages"
               />
-            </form>
-            <br></br>
-            <Grid>
-              <TableContainer
-                className="mainTableContainer"
-                component={Paper}
-                elevation={8}
-              >
-                <Table className="mainTable" aria-label="simple table">
-                  <TableHead>
-                    <TableRow className="headingRow">
-                      <TableCell align="center">
-                        <p className="headingCellText">Competition Name</p>
-                      </TableCell>
-                      <TableCell align="center">
-                        <p className="headingCellText">Current Season Start</p>
-                      </TableCell>
-                      <TableCell align="center">
-                        <p className="headingCellText">Current Season End</p>
-                      </TableCell>
-                      <TableCell align="center">
-                        <p className="headingCellText">Last Updated</p>
-                      </TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {filterCompetition.map((comp) => {
-                      //changing competition name from "Premiera Division" to "La Liga"
-                      if (comp.id === 2014) {
-                        comp.name = "La Liga";
-                      }
-                      return (
-                        <Competition
-                          key={comp.id}
-                          id={comp.id}
-                          name={comp.name}
-                          currentSeason={comp.currentSeason}
-                          lastUpdated={comp.lastUpdated}
-                        />
-                      );
-                    })}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </Grid>
-
-            <p className="subText">
-              All football data provided by the Football-Data.org API
-            </p>
-            <h3 ref={linkRef}>Links to github and linkedIn</h3>
-          </>
-        ) : (
+            </a>
+            <a
+              href="https://www.linkedin.com/in/dhairy-raval-2896b219a/"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="socialLinks"
+            >
+              {" "}
+              <img
+                src={linkedinLogo}
+                alt="linkedinLogo"
+                className="socialLinksImages"
+              />
+            </a>
+            <a
+              href="mailto:dhairyraval@gmail.com"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="socialLinks"
+            >
+              {" "}
+              <img
+                src={emailLogo}
+                alt="emailLogo"
+                className="socialLinksImages"
+              />
+            </a>
+          </div>
+        </div>
+      ) : (
+        <div className="loadingContainer">
           <p>Loading . . .</p>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

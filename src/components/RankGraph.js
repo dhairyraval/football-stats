@@ -13,11 +13,11 @@ import {
 
 const RankGraph = ({ standing, color }) => {
   const data = [];
-  const [arrangeData, setArrangeData] = useState("asc");
+  const [arrangeData, setArrangeData] = useState("ASC");
 
   const table = standing.table;
 
-  if (arrangeData === "asc") {
+  if (arrangeData === "ASC") {
     for (let i = 0; i < table.length; i++) {
       let rank = {
         name: table[i].team.name,
@@ -48,16 +48,15 @@ const RankGraph = ({ standing, color }) => {
   }
 
   const changeOrder = () => {
-    if (arrangeData === "asc") {
-      setArrangeData("desc");
+    if (arrangeData === "ASC") {
+      setArrangeData("DESC");
     } else {
-      setArrangeData("asc");
+      setArrangeData("ASC");
     }
   };
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
-      //console.log(payload);
       return (
         <div className="tooltipContainer">
           <p className="toolTipLabel">{label}</p>
@@ -107,31 +106,42 @@ const RankGraph = ({ standing, color }) => {
 
   return (
     <div
+      className="graphContainer"
       style={{
-        width: "90%",
+        width: "80%",
+        maxWidth: "60em",
         height: "90%",
-        border: "1px solid",
-        backgroundColor: "lightcoral",
-        margin: "3em",
+        padding: "1em",
+        border: "1px solid gray",
+        borderRadius: "1em",
       }}
     >
-      <button onClick={() => changeOrder()}>{arrangeData}</button>
+      <button
+        className="changeOrderBtn"
+        id={arrangeData}
+        onClick={() => changeOrder()}
+      >
+        {arrangeData}
+      </button>
       <p>
         {standing.type} {standing.group}
       </p>
       <ResponsiveContainer width="100%" height="80%">
         <BarChart data={data} layout="vertical" barCategoryGap="15%">
           <CartesianGrid strokeDasharray="5 5" />
+
           <XAxis dataKey="points" type="number" />
           <YAxis
             dataKey="name"
             type="category"
-            width={100}
+            width={120}
             tick={{ fontSize: 14 }}
           />
-          <Tooltip content={<CustomTooltip />} style={{ width: 100 }} />
+          <Tooltip content={<CustomTooltip />} />
           <Bar
             dataKey="points"
+            type="monotone"
+            stroke="#8a8a8a"
             fill={color}
             animationDuration={800}
             radius={[0, 10, 10, 0]}

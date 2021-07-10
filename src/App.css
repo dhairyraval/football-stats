@@ -2,11 +2,12 @@ a {
   text-decoration: none;
   font-weight: bold;
   color: #0c3680;
+  transition: 0.3s;
 }
 
 a:hover {
   background-color: #ffdd70;
-  border-radius: 10%;
+  border-radius: 15%;
 }
 
 .competitionInput {
@@ -34,30 +35,60 @@ a:hover {
   background-color: #76db74;
 }
 
-.mainDiv {
+.loadingContainer {
   display: flex;
-  width: 100%;
   flex-direction: column;
   align-items: center;
-  background-image: url("./components/img/backgroundImage.jpg");
+}
+
+.mainDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to bottom right, #088e925e, #c8ff319d),
+    url("./components/img/backgroundImage.jpg") center;
 }
 
 .mainHeading {
-  color: #333333;
+  text-align: center;
+  color: #000000;
   font-size: 3.5em;
 }
 
-.secondaryDiv {
+.searchText {
+  font-size: 1.5em;
+}
+
+.socialLinks {
+  height: auto;
+  max-width: 2.5em;
+  min-width: 1.5em;
+  transition: 0.5s;
+}
+
+.socialLinks:hover {
+  max-width: 3em;
+  background: transparent;
+}
+
+.socialLinksContainer {
+  width: 70%;
   display: flex;
-  width: 80%;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  padding-bottom: 3em;
+}
+
+.socialLinksImages {
+  height: auto;
+  width: 100%;
+  align-self: center;
+  transition: 0.5s;
 }
 
 .subHeading {
   border: none;
   background: transparent;
-  color: #333333;
   font-size: 1.5em;
   border-radius: 0.5em;
   transition: 0.5s;
@@ -70,9 +101,4 @@ a:hover {
 
 .subText {
   padding: 2.5em;
-}
-
-.searchText {
-  color: #333333;
-  font-size: 1.5em;
 }

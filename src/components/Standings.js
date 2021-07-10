@@ -127,16 +127,16 @@ const Standings = (props) => {
                 width: "95%",
               }}
             >
-              <p style={{ padding: "2%", textAlign: "center" }}>
+              <p style={{ padding: "1%", textAlign: "center" }}>
                 <strong>Start Date:</strong> {season.startDate}
               </p>
-              <p style={{ padding: "2%", textAlign: "center" }}>
+              <p style={{ padding: "1%", textAlign: "center" }}>
                 <strong>End Date:</strong> {season.endDate}
               </p>
-              <p style={{ padding: "2%", textAlign: "center" }}>
+              <p style={{ padding: "1%", textAlign: "center" }}>
                 <strong>Round:</strong> {season.currentMatchday}
               </p>
-              <p style={{ padding: "2%", textAlign: "center" }}>
+              <p style={{ padding: "1%", textAlign: "center" }}>
                 <strong>Winner:</strong>{" "}
                 {season.winner === null ? "TBA" : season.winner.name}
               </p>
@@ -169,7 +169,8 @@ const Standings = (props) => {
                         justifyContent: "center",
                         width: "100%",
                         height: heightValue,
-                        backgroundColor: "lightgray",
+                        marginTop: "1em",
+                        marginBottom: "1.5em",
                       }}
                       key={index}
                     >

@@ -1,6 +1,22 @@
+button.changeOrderBtn {
+  background: transparent;
+  padding: 0.5em;
+  width: 5em;
+  border: none;
+  border-bottom: 2px solid;
+  transition: 0.5s;
+}
+button.changeOrderBtn:hover {
+  background: lightgrey;
+  border-radius: 1em;
+}
+
+.graphContainer {
+}
+
 .tooltipContainer {
-  height: 15em;
-  width: 50%;
+  height: auto;
+  width: 8em;
   background-color: lightgrey;
   border: 1px solid goldenrod;
   display: flex;
@@ -11,8 +27,8 @@
 }
 
 .toolTipImage {
-  height: auto;
-  width: 50%;
+  height: 3em;
+  width: 4em;
   filter: drop-shadow(0 0 0.1rem grey);
 }
 
@@ -22,10 +38,12 @@
 }
 
 .toolTipStats {
-  padding: 2%;
+  font-size: 80%;
 }
 
 .toolTipStatsContainer {
   display: flex;
+  width: 100%;
   flex-direction: row;
+  justify-content: space-evenly;
 }
