@@ -50,7 +50,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   background: linear-gradient(to bottom, #2cb0d8fb, #59c75581),
-    url("./components/img/bg1.jpg") no-repeat center center fixed;
+    url("./components/img/bg1.jpg") no-repeat center center;
 }
 
 .mainHeading {
