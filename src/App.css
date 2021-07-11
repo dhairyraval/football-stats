@@ -45,8 +45,9 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to bottom, #51a0b8f5, #1aca4fc2),
-    url("./components/img/bg1.jpg") center center fixed;
+  background: linear-gradient(to bottom, #b8519ef5, #1aca4fc2),
+    url("./components/img/bg1.jpg") center fixed;
+  -webkit-overflow-scrolling: touch;
   background-size: cover;
 }
 
