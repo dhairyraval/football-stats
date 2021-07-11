@@ -9,6 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { Redirect } from "react-router";
 
+const API_KEY = process.env.REACT_APP_API_KEY;
 const Matches = ({ standings, compId }) => {
   //useState const
   const [errorMessage, setErrorMessage] = useState("false");
@@ -24,7 +25,7 @@ const Matches = ({ standings, compId }) => {
           `https://api.football-data.org/v2/competitions/${compId}/matches`,
           {
             headers: {
-              "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
+              "X-Auth-Token": `${API_KEY}`,
               "Content-Type": "application/json",
             },
             crossDomain: true,

@@ -7,7 +7,7 @@ a {
 
 a:hover {
   background-color: #ffdd70;
-  border-radius: 15%;
+  border-radius: 10%;
 }
 
 .competitionInput {
@@ -45,8 +45,12 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to bottom right, #088e925e, #c8ff319d),
-    url("./components/img/backgroundImage.jpg") center;
+  background: linear-gradient(to bottom, #51a0b8f5, #1aca4fc2),
+    url("./components/img/bg1.jpg") center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .mainHeading {
@@ -60,9 +64,7 @@ a:hover {
 }
 
 .socialLinks {
-  height: auto;
   max-width: 2.5em;
-  min-width: 1.5em;
   transition: 0.5s;
 }
 
@@ -73,6 +75,7 @@ a:hover {
 
 .socialLinksContainer {
   width: 70%;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -80,10 +83,7 @@ a:hover {
 }
 
 .socialLinksImages {
-  height: auto;
   width: 100%;
-  align-self: center;
-  transition: 0.5s;
 }
 
 .subHeading {
@@ -101,4 +101,5 @@ a:hover {
 
 .subText {
   padding: 2.5em;
+  text-align: center;
 }

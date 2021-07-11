@@ -60,11 +60,16 @@ const RankGraph = ({ standing, color }) => {
       return (
         <div className="tooltipContainer">
           <p className="toolTipLabel">{label}</p>
-          <img
-            className="toolTipImage"
-            src={payload[0].payload.logo}
-            alt="TeamLogo"
-          />
+          {payload[0].payload.logo === null ? (
+            <p className="toolTipImageAltTxt">Team-logo unavailable</p>
+          ) : (
+            <img
+              className="toolTipImage"
+              src={payload[0].payload.logo}
+              alt="TeamLogo"
+            />
+          )}
+
           <div className="toolTipStatsContainer">
             <p className="toolTipStats">
               <strong>GP</strong>
@@ -113,6 +118,7 @@ const RankGraph = ({ standing, color }) => {
         height: "90%",
         padding: "1em",
         border: "1px solid gray",
+
         borderRadius: "1em",
       }}
     >
@@ -126,7 +132,7 @@ const RankGraph = ({ standing, color }) => {
       <p>
         {standing.type} {standing.group}
       </p>
-      <ResponsiveContainer width="100%" height="80%">
+      <ResponsiveContainer width="90%" height="80%">
         <BarChart data={data} layout="vertical" barCategoryGap="15%">
           <CartesianGrid strokeDasharray="5 5" />
 
@@ -134,7 +140,7 @@ const RankGraph = ({ standing, color }) => {
           <YAxis
             dataKey="name"
             type="category"
-            width={120}
+            width={125}
             tick={{ fontSize: 14 }}
           />
           <Tooltip content={<CustomTooltip />} />

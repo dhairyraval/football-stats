@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import RankGraph from "./RankGraph";
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 const Standings = (props) => {
   const id = props.location.aboutProps;
 
@@ -57,7 +59,7 @@ const Standings = (props) => {
           `https://api.football-data.org/v2/competitions/${id.id.id}/standings`,
           {
             headers: {
-              "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
+              "X-Auth-Token": `${API_KEY}`,
             },
             crossDomain: true,
           }

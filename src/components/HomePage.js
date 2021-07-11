@@ -16,6 +16,8 @@ import TableRow from "@material-ui/core/TableRow";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 const HomePage = () => {
   const [competitions, setCompetitions] = useState([]);
   const [competitionName, setCompetitionName] = useState("");
@@ -32,7 +34,7 @@ const HomePage = () => {
       await axios
         .get("https://api.football-data.org/v2/competitions/", {
           headers: {
-            "X-Auth-Token": "72aa30bc107e4c7fa1ca8f84861b8c95",
+            "X-Auth-Token": `${API_KEY}`,
           },
         })
         .then((res) => {
@@ -130,7 +132,31 @@ const HomePage = () => {
 
           <p className="subText">
             All football data provided by{" "}
-            <a href="https://www.football-data.org/">Football-Data.org API</a>
+            <a
+              href="https://www.football-data.org/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Football-Data.org API
+            </a>{" "}
+            <br />
+            <br />
+            Photo by{" "}
+            <a
+              href="https://unsplash.com/@06mather?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Mathias Herheim
+            </a>{" "}
+            on{" "}
+            <a
+              href="https://unsplash.com/collections/1791496/soccer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Unsplash
+            </a>
           </p>
           <div className="socialLinksContainer" ref={linkRef}>
             <a
@@ -139,7 +165,6 @@ const HomePage = () => {
               rel="noreferrer noopener"
               className="socialLinks"
             >
-              {" "}
               <img
                 src={githubLogo}
                 alt="githubLogo"
@@ -152,7 +177,6 @@ const HomePage = () => {
               rel="noreferrer noopener"
               className="socialLinks"
             >
-              {" "}
               <img
                 src={linkedinLogo}
                 alt="linkedinLogo"
@@ -165,7 +189,6 @@ const HomePage = () => {
               rel="noreferrer noopener"
               className="socialLinks"
             >
-              {" "}
               <img
                 src={emailLogo}
                 alt="emailLogo"
