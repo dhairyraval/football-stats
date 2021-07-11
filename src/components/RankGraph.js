@@ -110,18 +110,7 @@ const RankGraph = ({ standing, color }) => {
   };
 
   return (
-    <div
-      className="graphContainer"
-      style={{
-        width: "80%",
-        maxWidth: "60em",
-        height: "90%",
-        padding: "1em",
-        border: "1px solid gray",
-
-        borderRadius: "1em",
-      }}
-    >
+    <div className="graphContainer">
       <button
         className="changeOrderBtn"
         id={arrangeData}
@@ -135,7 +124,6 @@ const RankGraph = ({ standing, color }) => {
       <ResponsiveContainer width="90%" height="80%">
         <BarChart data={data} layout="vertical" barCategoryGap="15%">
           <CartesianGrid strokeDasharray="5 5" />
-
           <XAxis dataKey="points" type="number" />
           <YAxis
             dataKey="name"

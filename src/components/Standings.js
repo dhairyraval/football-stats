@@ -165,14 +165,15 @@ const Standings = (props) => {
                 {standings.map((standing, index) => {
                   return (
                     <div
+                      className="rankGraphContainer"
                       style={{
                         display: "flex",
                         alignContent: "center",
                         justifyContent: "center",
                         width: "100%",
                         height: heightValue,
-                        marginTop: "1em",
-                        marginBottom: "1.5em",
+                        marginTop: "1.5em",
+                        marginBottom: "3em",
                       }}
                       key={index}
                     >

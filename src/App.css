@@ -5,6 +5,10 @@ a {
   transition: 0.3s;
 }
 
+a.attribution {
+  color: #03037c;
+}
+
 a:hover {
   background-color: #ffdd70;
   border-radius: 10%;
@@ -45,10 +49,9 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to bottom, #b8519ef5, #1aca4fc2),
-    url("./components/img/bg1.jpg") center fixed;
+  background: linear-gradient(to bottom, #f8063b, #59c75581),
+    url("./components/img/bg1.jpg") center center fixed;
   -webkit-overflow-scrolling: touch;
-  background-size: cover;
 }
 
 .mainHeading {

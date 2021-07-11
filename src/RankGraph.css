@@ -12,6 +12,13 @@ button.changeOrderBtn:hover {
 }
 
 .graphContainer {
+  width: 80%;
+  max-width: 60em;
+  height: 90%;
+  padding: 1.5em;
+  margin-bottom: 1em;
+  border: 1px solid gray;
+  border-radius: 1em;
 }
 
 .tooltipContainer {

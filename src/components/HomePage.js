@@ -136,6 +136,7 @@ const HomePage = () => {
               href="https://www.football-data.org/"
               target="_blank"
               rel="noreferrer noopener"
+              className="attribution"
             >
               Football-Data.org API
             </a>{" "}
@@ -146,6 +147,7 @@ const HomePage = () => {
               href="https://unsplash.com/@06mather?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
               target="_blank"
               rel="noreferrer noopener"
+              className="attribution"
             >
               Mathias Herheim
             </a>{" "}
@@ -154,6 +156,7 @@ const HomePage = () => {
               href="https://unsplash.com/collections/1791496/soccer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
               target="_blank"
               rel="noreferrer noopener"
+              className="attribution"
             >
               Unsplash
             </a>
