@@ -14,7 +14,7 @@ Over the course of development I was able to learn and practice with many concep
  - Using Axios
  - Resolving CORS issues when using 3rd party resources like APIs
  - Using material-ui components
- - Hosting react-apps with guthub pages
+ - Hosting react-apps with github pages
 
 
 
