@@ -29,7 +29,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
 The page will reload if you make edits.\
-You may also see lint errors in the console.
 <br><br>
 
 Please let me know if you have any feedback, suggestions \

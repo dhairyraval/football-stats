@@ -36,6 +36,7 @@ const HomePage = () => {
           headers: {
             "X-Auth-Token": `${API_KEY}`,
           },
+          crossDomain: true,
         })
         .then((res) => {
           setCompetitions(res.data.competitions);
