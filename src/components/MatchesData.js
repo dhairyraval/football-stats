@@ -22,7 +22,7 @@ const Matches = ({ standings, compId }) => {
     try {
       await axios
         .get(
-          `https://api.football-data.org/v2/competitions/${compId}/matches`,
+          `https://api.football-data.org/v4/competitions/${compId}/matches`,
           {
             headers: {
               "X-Auth-Token": `${API_KEY}`,

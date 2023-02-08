@@ -32,7 +32,7 @@ const HomePage = () => {
   const fetchData = async () => {
     try {
       await axios
-        .get("https://api.football-data.org/v2/competitions/", {
+        .get("https://api.football-data.org/v4/competitions/", {
           headers: {
             "X-Auth-Token": `${API_KEY}`,
           },
