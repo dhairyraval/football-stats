@@ -6,7 +6,6 @@ The main goal of this project is to help users get stats from any major football
 
 ---
 
-### [Live Project](https://dhairyraval.github.io/football-stats/#/)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 <br><br>
 
